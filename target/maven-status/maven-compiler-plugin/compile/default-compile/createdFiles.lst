@@ -1,1 +1,8 @@
+com\masivian\model\Roulette.class
+com\masivian\utilities\Utilities.class
+com\masivian\service\RouletteService.class
+com\masivian\repository\RouletteRepository.class
+com\masivian\controller\RouletteController.class
+com\masivian\model\RouletteBet.class
 com\masivian\RouletteWsApplication.class
+com\masivian\model\RouletteResult.class
