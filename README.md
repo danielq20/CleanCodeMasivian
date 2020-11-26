@@ -62,7 +62,7 @@ For test in Postman (remember put POST):
   
   - Response 200: The new roulette id
   
-         ae3ad603-1557-4636-8459-5af4f8525adc
+         dd48856a-9c7f-4614-b4f0-58afc2e5be33
   
 
 ### Second Endpoint 
