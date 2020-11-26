@@ -119,33 +119,33 @@ For test in Postman (rember put PUT and id of previously created roulette):
    - Response 200: Succesful operation
                               
           {
-    "id": "dd48856a-9c7f-4614-b4f0-58afc2e5be33",
-    "status": "Closed",
-    "betsOfRoulette": [
-        {
-            "color": null,
-            "number": "15",
-            "result": "Lost",
-            "value": 600
-        },
-        {
-            "color": "black",
-            "number": null,
-            "result": "Won",
-            "value": 600
-        },
-        {
-            "color": "red",
-            "number": null,
-            "result": "Lost",
-            "value": 600
-        }
-    ],
-    "result": {
-        "color": "Black",
-        "number": "31"
-    }
-      }
+                "id": "dd48856a-9c7f-4614-b4f0-58afc2e5be33",
+                "status": "Closed",
+                "betsOfRoulette": [
+                    {
+                        "color": null,
+                        "number": "15",
+                        "result": "Lost",
+                        "value": 600
+                    },
+                    {
+                        "color": "black",
+                        "number": null,
+                        "result": "Won",
+                        "value": 600
+                    },
+                    {
+                        "color": "red",
+                        "number": null,
+                        "result": "Lost",
+                        "value": 600
+                    }
+                ],
+                "result": {
+                    "color": "Black",
+                    "number": "31"
+                }
+          }
       
    - Response 400: Roulette not found
    
@@ -161,53 +161,53 @@ For test in Postman (remember put GET):
         
    - Response 200: Succesful operation
   
-         [
-    {
-        "id": "b0ca9971-32cb-4550-9d96-075e0e5c8900",
-        "status": "Closed",
-        "betsOfRoulette": [],
-        "result": null
-    },
-    {
-        "id": "50f8a8b3-6e0f-458a-aa60-99c7024321be",
-        "status": "Closed",
-        "betsOfRoulette": [],
-        "result": null
-    },
-    {
-        "id": "dd48856a-9c7f-4614-b4f0-58afc2e5be33",
-        "status": "Closed",
-        "betsOfRoulette": [
-            {
-                "color": null,
-                "number": "15",
-                "result": "Lost",
-                "value": 600
-            },
-            {
-                "color": "black",
-                "number": null,
-                "result": "Won",
-                "value": 600
-            },
-            {
-                "color": "red",
-                "number": null,
-                "result": "Lost",
-                "value": 600
-            }
-        ],
-        "result": {
-            "color": "Black",
-            "number": "31"
-        }
-    },
-    {
-        "id": "ae3ad603-1557-4636-8459-5af4f8525adc",
-        "status": "Closed",
-        "betsOfRoulette": [],
-        "result": null
-    }
+          [
+              {
+                  "id": "b0ca9971-32cb-4550-9d96-075e0e5c8900",
+                  "status": "Closed",
+                  "betsOfRoulette": [],
+                  "result": null
+              },
+              {
+                  "id": "50f8a8b3-6e0f-458a-aa60-99c7024321be",
+                  "status": "Closed",
+                  "betsOfRoulette": [],
+                  "result": null
+              },
+              {
+                  "id": "dd48856a-9c7f-4614-b4f0-58afc2e5be33",
+                  "status": "Closed",
+                  "betsOfRoulette": [
+                      {
+                          "color": null,
+                          "number": "15",
+                          "result": "Lost",
+                          "value": 600
+                      },
+                      {
+                          "color": "black",
+                          "number": null,
+                          "result": "Won",
+                          "value": 600
+                      },
+                      {
+                          "color": "red",
+                          "number": null,
+                          "result": "Lost",
+                          "value": 600
+                      }
+                  ],
+                  "result": {
+                      "color": "Black",
+                      "number": "31"
+                  }
+              },
+              {
+                  "id": "ae3ad603-1557-4636-8459-5af4f8525adc",
+                  "status": "Closed",
+                  "betsOfRoulette": [],
+                  "result": null
+              }
     ]     
         
 ## Notes
