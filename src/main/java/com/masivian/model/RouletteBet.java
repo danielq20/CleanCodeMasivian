@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import com.masivian.utilities.Utilities;
 
 public class RouletteBet implements Serializable {
+	
 	@Id
 	private Long id;
 	private String color;
@@ -12,8 +13,7 @@ public class RouletteBet implements Serializable {
 	private String result;
 	private int value;
 
-	public RouletteBet() {
-		this.id = Utilities.generateId();
+	public RouletteBet() {		
 		this.result = "Roulette still open";
 	}
 
@@ -56,4 +56,5 @@ public class RouletteBet implements Serializable {
 	public void setValue(int value) {
 		this.value = value;
 	}
+	
 }

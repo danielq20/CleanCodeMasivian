@@ -8,14 +8,8 @@ import com.masivian.model.Roulette;
 import com.masivian.model.RouletteBet;
 import com.masivian.model.RouletteResult;
 
-public class Utilities implements Serializable {
-	private static final long serialVersionUID = 1L;
-
-	public static long generateId() {
-		long tmp = new Random().nextLong();
-		return Math.max(tmp, tmp * -1);
-	}
-
+public class Utilities {
+	
 	public static boolean rouletteIsOpen(Roulette roulette) {
 		return roulette.getStatus().equals("Open");
 	}
@@ -59,4 +53,5 @@ public class Utilities implements Serializable {
 		else
 			return (bet.equalsIgnoreCase("red") || bet.equalsIgnoreCase("black")) && (value >= 1 && value <= 10000);
 	}
+	
 }

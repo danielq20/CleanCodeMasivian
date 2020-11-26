@@ -7,10 +7,6 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
-import com.masivian.utilities.Utilities;
-
-
-
 @RedisHash("roulette")
 public class Roulette implements Serializable {
 	@Id
@@ -60,4 +56,5 @@ public class Roulette implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
 }
