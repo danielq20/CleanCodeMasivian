@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.masivian</groupId>
-	<artifactId>rouletteWS</artifactId>
+	<artifactId>rouletteServices</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rouletteWS</name>
+	<name>rouletteServices</name>
 	<description>Masivian technical test</description>
 
 	<properties>
