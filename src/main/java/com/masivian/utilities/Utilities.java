@@ -1,9 +1,7 @@
 package com.masivian.utilities;
 
-import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 import com.masivian.model.Roulette;
 import com.masivian.model.RouletteBet;
 import com.masivian.model.RouletteResult;
@@ -49,8 +47,10 @@ public class Utilities {
 
 	public static boolean betIsValid(String bet, int value) {
 		if (IsANumber(bet))
+			
 			return (Integer.parseInt(bet) >= 0 && Integer.parseInt(bet) <= 36) && (value >= 1 && value <= 10000);
 		else
+			
 			return (bet.equalsIgnoreCase("red") || bet.equalsIgnoreCase("black")) && (value >= 1 && value <= 10000);
 	}
 	

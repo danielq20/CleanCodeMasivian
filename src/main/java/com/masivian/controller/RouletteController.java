@@ -52,4 +52,5 @@ public class RouletteController {
 		
 		return new ResponseEntity<>(roulettes, HttpStatus.OK);
 	}
+	
 }

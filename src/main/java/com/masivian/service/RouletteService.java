@@ -2,10 +2,8 @@ package com.masivian.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.masivian.model.Roulette;
 import com.masivian.model.RouletteBet;
 import com.masivian.model.RouletteResult;
@@ -44,10 +42,12 @@ public class RouletteService {
 		if (roulette != null) {
 			if (Utilities.rouletteIsOpen(roulette) && Utilities.betIsValid(bet, value)) {
 				RouletteBet newBet = new RouletteBet();
-				if (Utilities.IsANumber(bet))
+				if (Utilities.IsANumber(bet)) {
 					newBet.setNumber(bet);
-				else
+				}
+				else {
 					newBet.setColor(bet);
+				}
 				newBet.setValue(value);
 				roulette.addBet(newBet);
 				rouletteRepo.save(roulette);
@@ -75,6 +75,8 @@ public class RouletteService {
 				roulette.setBetsOfRoulette(rouletteBets);
 				rouletteRepo.save(roulette);
 				
+			} else {
+				roulette = null;
 			}
 		}
 		

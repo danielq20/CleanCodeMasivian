@@ -22,6 +22,7 @@ public class RouletteWsApplication {
 	RedisTemplate<String, Object> redisTemplate(){
 		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 		redisTemplate.setConnectionFactory(jedisConnectionFactory());
+		
 		return redisTemplate;
 	}
 

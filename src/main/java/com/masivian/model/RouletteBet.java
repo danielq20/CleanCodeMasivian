@@ -1,13 +1,9 @@
 package com.masivian.model;
 
 import java.io.Serializable;
-import org.springframework.data.annotation.Id;
-import com.masivian.utilities.Utilities;
 
 public class RouletteBet implements Serializable {
 	
-	@Id
-	private Long id;
 	private String color;
 	private String number;
 	private String result;
@@ -16,15 +12,7 @@ public class RouletteBet implements Serializable {
 	public RouletteBet() {		
 		this.result = "Roulette still open";
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	
 	public String getColor() {
 		return color;
 	}
