@@ -6,12 +6,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.masivian.service.RouletteService;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import com.masivian.model.Roulette;
 
 @RestController
 @RequestMapping("/roulettes")
-@Tag(name = "roulette", description = "The roulette API")
 public class RouletteController {
 	
 	@Autowired
