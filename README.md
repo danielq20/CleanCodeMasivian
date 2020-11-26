@@ -49,42 +49,33 @@ There are 5 Endpoints:
 - /roulettes/{rouletteId}/closeRoulette          PUT
 - /roulettes                                     GET
 
-Se procede a probar mediante Postman. Recordar poner el método de petición correcto.
-### Primer Endpoint 
+Endpoints could be tested by Postman. Remember to put the correct request method.
+### First Endpoint 
 
 - /roulettes  POST
 
-Endpoint que permite la creación de una nueva ruleta. No necesita ningún input. Devuelve el id de la rouleta creada. Con este endpoint se crea la colección Roulette en base de datos.
+Endpoint that allows the creation of a new roulette. It does not need any input. Returns the id of the created roulette.
 
-Para probar en Postman (colocar verbo POST):
+For test in Postman (remember put POST):
 
       http://localhost:8080/roulettes
 
- ![](images/img4.JPG)
-
-### Segundo Endpoint 
+### Second Endpoint 
  
  - /roulettes/{rouletteId}/openRoulette PUT
  
-Endpoint de apertura de ruleta. Recibe de input el id de una ruleta. Devuelve un mensaje que confirme que la operación fue éxitosa o denegada. Después de realizar este request se permite peticiones de apuestas. Para probar escogeré el id de la ruleta anteriormente creada, 163786231565777267
+Roulette opening endpoint. It receives from input the id of a roulette. Returns a message confirming that the operation was successful or denied. After making this request, betting requests are allowed.
  
-Para probar en Postman (colocar verbo PUT y id de una ruleta creada anteriormente):
+For test in Postman (rembember put PUT and id of a previously created roulette):
  
-      http://localhost:8080/roulettes/{rouletteId}/openRoulette
-      
-Ejemplo:
-
-      http://localhost:8080/roulettes/163786231565777267/openRoulette
-
-  ![](images/img5.JPG)     
+      http://localhost:8080/roulettes/{rouletteId}/openRoulette 
   
-  Si probamos una vez la operación será rechazada, ya que la ruleta está abierta.
   
-  ![](images/img6.JPG)    
   
-### Tercer Endpoint
   
-  - /roulettes/{rouletteId}/{bet}/{value} PUT
+### Third Endpoint
+  
+  - /roulettes/{rouletteId}/{bet}/{value}/bet PUT
   
 Endpoint de apuesta a ruleta. Se puede apostar un número (del 0 al 36) o color (red or black) y un valor de apuesta (máximo 10000 dólares). Recibe de inputs, el id de la ruleta, la apuesta (ya sea color o número), y  el valor de la apuesta. En los HEADERS se pasa un id de usuario, el servicio que haga la petición ya realizó autenticación y validación de que el cliente tiene el crédito neceario para realizar la apuesta.Para probar escogeré la ruleta creada, id 163786231565777267, color black, valor 2000.
   
@@ -102,7 +93,7 @@ Si ingresamos parametros de apuesta no válidos, la apuesta no será efectuada:
 
 ![](images/img8.JPG)
    
-### Cuarto Endpoint
+### Fourth Endpoint
    
    - /roulettes/{rouletteId}/closeRoulette PUT
    
@@ -118,7 +109,7 @@ Ejemplo:
        
 ![](images/img9.JPG)
 
-### Quinto Endpoint
+### Fifth Endpoint
 
 - /roulettes  GET
 
@@ -131,18 +122,6 @@ Para probar en Postman (colocar verbo GET):
         
 ![](images/img10.JPG)
 
-## Dependencias del proyecto
-
-En el pom.xml aparte de utilizar las depencias de ***Spring Web*** y ***MongoDB***, utilicé una de **OpenAPI** (que tiene la configuración el paquete com.masivian.config) que permite generar una documentación sencilla de los Web Services y la deja en el siguiente formato:
-
-![](images/img11.JPG)
-
 ## Notes
 
 - I didn't use ORMs.
-- I researched about CloudWatch and red que era para monitorear logs y el estado de aplicaciones desplegadas en EC2 o otras herramientas de AWS. 
-
-
-
-
-
