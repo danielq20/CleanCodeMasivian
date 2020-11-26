@@ -12,12 +12,12 @@ The Endpoints were developed in Spring Boot and as data persistence mechanism I 
   - Redis must be installed to start database server.
   - Maven must be installed to compile and run Spring Boot app.
   
-## Recomendaciones
+## Recomendattions
 
 - Spring Boot Aplication runs by port 8080 by default and Redis runs by port 6379 by default, if other services are running on those ports, they must be stopped.
 - The proposal is developed in a Maven proyect. For view source code I recommend STS or IntelliJ IDEA.
 
-## Instrucciones
+## Instructions
 
 1. Clone the repository:
 
@@ -27,7 +27,7 @@ The Endpoints were developed in Spring Boot and as data persistence mechanism I 
 
         redis-server 
         
- Now we must start the Spring Boot application. For this we need to build the application jar, using Maven. Once the jar is built we can run it.
+   Now we must start the Spring Boot application. For this we need to build the application jar, using Maven. Once the jar is built we can run it.
 
 4. Build the application jar. From the terminal bash we access the cloned repository:
 
@@ -59,6 +59,11 @@ Endpoint that allows the creation of a new roulette. It does not need any input.
 For test in Postman (remember put POST):
 
       http://localhost:8080/roulettes
+  
+  - Response 200: The new roulette id
+  
+         ae3ad603-1557-4636-8459-5af4f8525adc
+  
 
 ### Second Endpoint 
  
@@ -69,59 +74,142 @@ Roulette opening endpoint. It receives from input the id of a roulette. Returns 
 For test in Postman (rembember put PUT and id of a previously created roulette):
  
       http://localhost:8080/roulettes/{rouletteId}/openRoulette 
+    
+   - Response 200: Succesful operation
   
+         Succesful operation
+         
+   - Response 400: Operation Denied (Roulette not found or roulette already opened)
   
-  
+         Operation denied      
   
 ### Third Endpoint
   
   - /roulettes/{rouletteId}/{bet}/{value}/bet PUT
   
-Endpoint de apuesta a ruleta. Se puede apostar un número (del 0 al 36) o color (red or black) y un valor de apuesta (máximo 10000 dólares). Recibe de inputs, el id de la ruleta, la apuesta (ya sea color o número), y  el valor de la apuesta. En los HEADERS se pasa un id de usuario, el servicio que haga la petición ya realizó autenticación y validación de que el cliente tiene el crédito neceario para realizar la apuesta.Para probar escogeré la ruleta creada, id 163786231565777267, color black, valor 2000.
+Roulette betting endpoint. You can bet a number (from 0 to 36) or color (red or black) and a bet value (maximum $ 10,000). It receives inputs, the id of the roulette, the bet (either color or number), and the value of the bet. In HEADERS a valid user id is passed.
   
-Para probar en Postman (colocar verbo PUT, id de ruleta creada anteriormente, número o color válido y valor de apuesta válido, en la sección de headers de Postman colocar como key userId y como value un número que representa el id de un usuario):
+For test in Postman (remember put PUT, id of previously created roulette, valid number or color and valid bet value, in Postman's headers section put as key userId and as value a number that represents the id of a user):
 
-      http://localhost:8080/roulettes/{rouletteId}/{bet}/{value}
+      http://localhost:8080/roulettes/{rouletteId}/{bet}/{value}/bet
       
-Ejemplo:
-
-      http://localhost:8080/roulettes/163786231565777267/black/2000
+   - Response 200: Succesful operation
+  
+         The bet was made
+         
+   - Response 400: Operation Denied (Roulette is closed or Bet properties are invalid)
+  
+         The bet wasn't made because roulette is closed or bet is not valid    
       
-![](images/img7.JPG)
-   
-Si ingresamos parametros de apuesta no válidos, la apuesta no será efectuada:
-
-![](images/img8.JPG)
+   - Response 400: Operation Denied (Roulette not found)
+  
+         The bet wasn't made because id of roulette doesn't exist    
    
 ### Fourth Endpoint
    
    - /roulettes/{rouletteId}/closeRoulette PUT
    
-Endpoint de cierre de apuestas de una ruleta. Recibe de input el id de una ruleta. Devuelve el resultado de cada una de las apuestas hechas desde la apertura de la ruleta. Hasta el cierre de esta. Para probar escogeré la ruleta creada, id 163786231565777267 (creé más apuestas previamente).
+Endpoint for closing bets on a roulette. It receives from input the id of a roulette wheel. Returns the result of each of the bets made from the opening of the roulette to the closing of this.
 
-Para probar en Postman (colocar verbo PUT y id de ruleta creada anteriormente):
+For test in Postman (rember put PUT and id of previously created roulette):
 
        http://localhost:8080/roulettes/{rouletteId}/closeRoulette
        
-Ejemplo:
-
-       http://localhost:8080/roulettes/163786231565777267/closeRoulette
        
-![](images/img9.JPG)
-
+   - Response 200: Succesful operation
+                              
+          {
+    "id": "dd48856a-9c7f-4614-b4f0-58afc2e5be33",
+    "status": "Closed",
+    "betsOfRoulette": [
+        {
+            "color": null,
+            "number": "15",
+            "result": "Lost",
+            "value": 600
+        },
+        {
+            "color": "black",
+            "number": null,
+            "result": "Won",
+            "value": 600
+        },
+        {
+            "color": "red",
+            "number": null,
+            "result": "Lost",
+            "value": 600
+        }
+    ],
+    "result": {
+        "color": "Black",
+        "number": "31"
+    }
+      }
+      
+   - Response 400: Roulette not found
+   
 ### Fifth Endpoint
 
 - /roulettes  GET
 
-Endpoint de listado de ruletas creadas con sus estados. No necesita ningún input. Para probar, previamente había creado más ruletas y aperturado algunas.
+Roulette list endpoint created with their states. You don't need any input.
 
-Para probar en Postman (colocar verbo GET):
+For test in Postman (remember put GET):
 
         http://localhost:8080/roulettes
         
+   - Response 200: Succesful operation
+  
+         [
+    {
+        "id": "b0ca9971-32cb-4550-9d96-075e0e5c8900",
+        "status": "Closed",
+        "betsOfRoulette": [],
+        "result": null
+    },
+    {
+        "id": "50f8a8b3-6e0f-458a-aa60-99c7024321be",
+        "status": "Closed",
+        "betsOfRoulette": [],
+        "result": null
+    },
+    {
+        "id": "dd48856a-9c7f-4614-b4f0-58afc2e5be33",
+        "status": "Closed",
+        "betsOfRoulette": [
+            {
+                "color": null,
+                "number": "15",
+                "result": "Lost",
+                "value": 600
+            },
+            {
+                "color": "black",
+                "number": null,
+                "result": "Won",
+                "value": 600
+            },
+            {
+                "color": "red",
+                "number": null,
+                "result": "Lost",
+                "value": 600
+            }
+        ],
+        "result": {
+            "color": "Black",
+            "number": "31"
+        }
+    },
+    {
+        "id": "ae3ad603-1557-4636-8459-5af4f8525adc",
+        "status": "Closed",
+        "betsOfRoulette": [],
+        "result": null
+    }
+    ]     
         
-![](images/img10.JPG)
-
 ## Notes
 
 - I didn't use ORMs.
