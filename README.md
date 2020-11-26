@@ -38,7 +38,7 @@ The Endpoints were developed in Spring Boot and as data persistence mechanism I 
         java -jar target/rouletteServices-0.0.1-SNAPSHOT.jar        
    
         
-    Now we are ready to test the endpoints.        
+   Now we are ready to test the endpoints.        
 ## Endpoints
 
 There are 5 Endpoints:
@@ -74,6 +74,10 @@ Roulette opening endpoint. It receives from input the id of a roulette. Returns 
 For test in Postman (rembember put PUT and id of a previously created roulette):
  
       http://localhost:8080/roulettes/{rouletteId}/openRoulette 
+      
+Example (with id dd48856a-9c7f-4614-b4f0-58afc2e5be33) :
+
+      http://localhost:8080/roulettes/dd48856a-9c7f-4614-b4f0-58afc2e5be33/openRoulette      
     
    - Response 200: Succesful operation
   
@@ -89,9 +93,13 @@ For test in Postman (rembember put PUT and id of a previously created roulette):
   
 Roulette betting endpoint. You can bet a number (from 0 to 36) or color (red or black) and a bet value (maximum $ 10,000). It receives inputs, the id of the roulette, the bet (either color or number), and the value of the bet. In HEADERS a valid user id is passed.
   
-For test in Postman (remember put PUT, id of previously created roulette, valid number or color and valid bet value, in Postman's headers section put as key userId and as value a number that represents the id of a user):
+For test in Postman (remember put PUT, id of previously created roulette, valid number (0 to 36) or color (black or red) and valid bet value, in Postman's headers section put as key userId and as value a number that represents the id of a user):
 
       http://localhost:8080/roulettes/{rouletteId}/{bet}/{value}/bet
+      
+Example (with id dd48856a-9c7f-4614-b4f0-58afc2e5be33, black color, bet value of 2000):
+
+      http://localhost:8080/roulettes/dd48856a-9c7f-4614-b4f0-58afc2e5be33/black/2000/bet      
       
    - Response 200: Succesful operation
   
@@ -114,7 +122,10 @@ Endpoint for closing bets on a roulette. It receives from input the id of a roul
 For test in Postman (rember put PUT and id of previously created roulette):
 
        http://localhost:8080/roulettes/{rouletteId}/closeRoulette
-       
+
+Example:
+
+       http://localhost:8080/roulettes/dd48856a-9c7f-4614-b4f0-58afc2e5be33/closeRoulette
        
    - Response 200: Succesful operation
                               
