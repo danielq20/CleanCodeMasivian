@@ -207,8 +207,7 @@ For test in Postman (remember put GET):
                   "status": "Closed",
                   "betsOfRoulette": [],
                   "result": null
-              }
-    ]     
+              } ]     
         
 ## Notes
 
